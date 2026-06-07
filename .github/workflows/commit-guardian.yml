@@ -1,0 +1,75 @@
+name: Commit Guardian
+
+# THE GATE. This runs on GitHub's servers for every push and PR, no matter what
+# device or tool created the commit — a laptop, a phone, claude.ai/code, a cloud
+# agent, or a plain `git push`. That is what actually enforces the rules.
+#
+# The /scan slash command runs the SAME script (.github/scripts/guardian.sh)
+# locally as a pre-check, but it is only advisory and bypassable. THIS workflow
+# is the boundary.
+#
+# This file is identical in all four repos. It decides block-vs-warn from the
+# repo's visibility, so you copy it everywhere unchanged:
+#   public repo  -> block mode (fails the check on findings)
+#   private repos -> warn mode (reports, never blocks)
+#
+# A failing check only PREVENTS a merge if branch protection requires the "scan"
+# status check. See README.md -> "Making the public repo ACTUALLY gate".
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine changed files
+        id: files
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE='${{ github.event.pull_request.base.sha }}'
+            HEAD='${{ github.event.pull_request.head.sha }}'
+            LIST="$(git diff --name-only "$BASE" "$HEAD")"
+          else
+            LIST="$(git diff --name-only HEAD~1 HEAD 2>/dev/null || git ls-files)"
+          fi
+          {
+            echo "list<<__EOF__"
+            echo "$LIST"
+            echo "__EOF__"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Collect approvals from the PR description
+        id: approvals
+        if: github.event_name == 'pull_request'
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          APPROVED="$(printf '%s' "$PR_BODY" \
+            | grep -Eio 'APPROVED:[[:space:]]*[^[:space:]]+' \
+            | sed -E 's/^APPROVED:[[:space:]]*//I' || true)"
+          {
+            echo "list<<__EOF__"
+            echo "$APPROVED"
+            echo "__EOF__"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Run Commit Guardian
+        env:
+          # Public -> block, private -> warn. Driven by visibility so this exact
+          # file is correct in all four repos with no per-repo editing.
+          GUARDIAN_MODE: ${{ github.event.repository.visibility == 'public' && 'block' || 'warn' }}
+          GUARDIAN_FILES: ${{ steps.files.outputs.list }}
+          GUARDIAN_APPROVALS: ${{ steps.approvals.outputs.list }}
+        run: bash .github/scripts/guardian.sh

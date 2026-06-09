@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bio-Pod — Organic Fertilizer, Simplified</title>
+  <meta name="description" content="A pre-measured, biodegradable organic fertilizer pod. Drop it in the soil, water as normal. 100% organic, zero plastic waste.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #fafcf8;
+      --surface: #ffffff;
+      --border: #dde8d5;
+      --text: #1c2b16;
+      --text-dim: #5c7252;
+      --green: #2d7a3a;
+      --green-dark: #1e5c28;
+      --green-light: #e8f5e3;
+      --earth: #6b5b3e;
+      --earth-light: #f5f0e8;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .leaf-bg {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(45, 122, 58, 0.04) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 20% 80%, rgba(107, 91, 62, 0.03) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 80% 20%, rgba(45, 122, 58, 0.03) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .logo-mark {
+      width: 44px;
+      height: 44px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .logo-name {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      background: var(--green-light);
+      border: 1px solid rgba(45, 122, 58, 0.15);
+      border-radius: 100px;
+      color: var(--green);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 .green { color: var(--green); }
+    h1 .earth { color: var(--earth); }
+
+    .tagline {
+      font-size: 1.2rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .how-it-works {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      width: 130px;
+    }
+
+    .step-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .step-label {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    .step-arrow {
+      display: flex;
+      align-items: center;
+      color: var(--border);
+      font-size: 1.2rem;
+      padding-top: 0.5rem;
+    }
+
+    .values {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .value-tag {
+      padding: 0.4rem 0.85rem;
+      background: var(--earth-light);
+      border-radius: 8px;
+      font-size: 0.82rem;
+      color: var(--earth);
+      font-weight: 500;
+    }
+
+    .contact {
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact a {
+      color: var(--green);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.78rem;
+      z-index: 1;
+    }
+
+    @media (max-width: 500px) {
+      .step-arrow { display: none; }
+      .how-it-works { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="leaf-bg"></div>
+
+  <section class="hero">
+    <div class="content">
+      <div class="logo">
+        <div class="logo-mark">🌱</div>
+        <span class="logo-name">Bio-Pod</span>
+      </div>
+
+      <div class="badge">Coming Soon</div>
+
+      <h1>
+        <span class="green">Organic fertilizer</span>,<br>
+        <span class="earth">simplified.</span>
+      </h1>
+
+      <p class="tagline">
+        A pre-measured, biodegradable pod you drop in the soil and water as
+        normal. The shell dissolves, delivering balanced organic nutrients
+        straight to the root zone. Zero measuring, zero synthetics, zero
+        plastic waste.
+      </p>
+
+      <div class="how-it-works">
+        <div class="step">
+          <div class="step-icon">🫳</div>
+          <span class="step-label">Drop in soil</span>
+        </div>
+        <div class="step-arrow">&#8594;</div>
+        <div class="step">
+          <div class="step-icon">💧</div>
+          <span class="step-label">Water normally</span>
+        </div>
+        <div class="step-arrow">&#8594;</div>
+        <div class="step">
+          <div class="step-icon">🌿</div>
+          <span class="step-label">Watch it grow</span>
+        </div>
+      </div>
+
+      <div class="values">
+        <span class="value-tag">100% Organic</span>
+        <span class="value-tag">Biodegradable</span>
+        <span class="value-tag">Pre-Measured</span>
+        <span class="value-tag">Zero Plastic</span>
+      </div>
+
+      <div class="contact">
+        <a href="mailto:hello@biopodllc.com">hello@biopodllc.com</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>&copy; 2026 Bio-Pod LLC</footer>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Bio-Pod">
+  <path d="M24 3C35 14 39 27 24 45C9 27 13 14 24 3Z" fill="#3C6B2E"/>
+  <path d="M24 3C35 14 39 27 24 45C24 31 24 16 24 3Z" fill="#5C8A45"/>
+  <path d="M24 12C22 22 22 33 24 41" stroke="#F7F3EA" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M24 21C26.4 24 29.6 25 31 25.6" stroke="#F7F3EA" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <path d="M24 28C21.6 31 18.4 32 17 32.6" stroke="#F7F3EA" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+</svg>

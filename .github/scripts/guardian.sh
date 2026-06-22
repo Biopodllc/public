@@ -27,7 +27,7 @@ APPROVALS="${GUARDIAN_APPROVALS:-}"
 
 # A PUBLIC repo may only contain these. Anything else is flagged for review.
 PUBLIC_ALLOWED_DIRS="website product-info media brand .github .claude"
-PUBLIC_ALLOWED_ROOT_FILES="README.md CLAUDE.md .gitignore LICENSE"
+PUBLIC_ALLOWED_ROOT_FILES="README.md CLAUDE.md AGENTS.md .gitignore LICENSE"
 
 # ---- decide which files to scan -----------------------------------------
 if [ -n "${GUARDIAN_FILES:-}" ]; then
@@ -70,7 +70,7 @@ in_public_allowlist() {
 # keyword check ONLY — the CRITICAL secret checks below still run on every file.
 is_meta() {
   case "$1" in
-    .github/*|.claude/*|CLAUDE.md|README.md|LICENSE) return 0 ;;
+    .github/*|.claude/*|CLAUDE.md|AGENTS.md|README.md|LICENSE) return 0 ;;
   esac
   return 1
 }

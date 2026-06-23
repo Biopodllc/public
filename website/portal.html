@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plant Care Portal · BioPod</title>
+  <meta name="description" content="A free feeding tracker for your plants. Log when you placed a BioPod, see a live countdown across the 8 to 10 week cycle, and get a reminder when it is time to refeed." />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <meta property="og:title" content="Plant Care Portal · BioPod" />
+  <meta property="og:description" content="Track each plant's feeding cycle and never miss a refeed." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    /* Portal-specific styles (isolated to this page) */
+    .portal-grid { display: grid; gap: 24px; }
+    @media (min-width: 760px) { .portal-grid { grid-template-columns: 340px 1fr; align-items: start; } }
+    .panel { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 26px; box-shadow: var(--shadow-xs); }
+    .panel h2 { font-size: 1.4rem; }
+    .panel .field:last-of-type { margin-bottom: 0; }
+    .range-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .range-row output { font-family: var(--font-mono); font-weight: 500; color: var(--green-900); }
+    input[type="range"] { width: 100%; accent-color: var(--green-700); }
+
+    .plant-cards { display: grid; gap: 20px; }
+    @media (min-width: 1040px) { .plant-cards { grid-template-columns: repeat(2, 1fr); } }
+    .plant { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 22px; box-shadow: var(--shadow-xs); display: grid; grid-template-columns: 92px 1fr; gap: 18px; align-items: center; }
+    .ring { position: relative; width: 92px; height: 92px; }
+    .ring svg { transform: rotate(-90deg); }
+    .ring .ring-bg { stroke: var(--line); }
+    .ring .ring-fg { stroke: var(--green-700); stroke-linecap: round; transition: stroke-dashoffset .6s var(--ease), stroke .3s; }
+    .ring .ring-num { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-mono); font-size: .95rem; font-weight: 500; color: var(--ink-900); }
+    .plant h3 { font-size: 1.2rem; margin: 0 0 2px; }
+    .plant .meta { font-size: .85rem; color: var(--ink-300); }
+    .status { display: inline-flex; align-items: center; gap: .4rem; font-size: .8rem; font-weight: 600; padding: .25rem .6rem; border-radius: var(--radius-pill); margin-top: 8px; }
+    .status .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .status.active { background: var(--green-100); color: var(--green-900); } .status.active .dot { background: var(--green-700); }
+    .status.soon { background: #F3EAD8; color: var(--soil-700); } .status.soon .dot { background: var(--soil-700); }
+    .status.due { background: #F6E4D8; color: #8A3D1E; } .status.due .dot { background: var(--clay-600); }
+    .plant-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; padding-top: 6px; border-top: 1px solid var(--line); margin-top: 4px; }
+    .btn-sm { padding: .5rem .85rem; font-size: .85rem; border-radius: var(--radius-pill); border: 1.5px solid var(--line-strong); color: var(--green-900); display: inline-flex; align-items: center; gap: .4rem; transition: border-color .2s, color .2s, background .2s; }
+    .btn-sm:hover { border-color: var(--green-700); color: var(--green-700); }
+    .btn-sm.solid { background: var(--green-700); color: #fff; border-color: var(--green-700); }
+    .btn-sm.solid:hover { background: var(--green-900); }
+    .btn-sm.danger:hover { border-color: var(--clay-600); color: var(--clay-600); }
+    .btn-sm svg { width: 15px; height: 15px; stroke-width: 1.8; }
+    .empty { text-align: center; padding: 48px 28px; border: 1.5px dashed var(--line-strong); border-radius: var(--radius-lg); color: var(--ink-500); }
+    .empty svg { width: 40px; height: 40px; color: var(--green-500); stroke-width: 1.4; margin: 0 auto 14px; }
+    .reminder-bar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; padding: 16px 20px; background: var(--green-100); border: 1px solid var(--green-200); border-radius: var(--radius); margin-bottom: 24px; }
+    .reminder-bar p { color: var(--green-900); font-size: .92rem; margin: 0; }
+    .device-note { font-size: .82rem; color: var(--ink-300); margin-top: 14px; display: flex; gap: .5rem; align-items: flex-start; }
+    .device-note svg { width: 16px; height: 16px; flex: none; margin-top: 2px; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="BioPod home"><span><span class="brand-wordmark">BioPod</span><span class="tagline">Nature Simplified</span></span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="how-it-works.html">How It Works</a><a href="the-science.html">The Science</a><a href="indoor-plants.html">For Indoor Plants</a><a href="sustainability.html">Sustainability</a><a href="portal.html" class="active">Portal</a><a href="investors.html">Investors</a>
+      </nav>
+      <div class="nav-right"><a class="btn btn-text" href="contact.html">Contact</a><a class="btn btn-primary" href="contact.html#waitlist">Join the Waitlist</a></div>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="m-menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu" id="m-menu"><a href="how-it-works.html">How It Works</a><a href="the-science.html">The Science</a><a href="indoor-plants.html">For Indoor Plants</a><a href="sustainability.html">Sustainability</a><a href="portal.html">Plant Care Portal</a><a href="investors.html">Investors</a><a href="faq.html">FAQ</a><a href="about.html">About</a><a href="contact.html">Contact</a><a class="btn btn-primary" href="contact.html#waitlist">Join the Waitlist</a></div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Home</a> / Plant Care Portal</p>
+        <span class="eyebrow">Plant Care Portal</span>
+        <h1>Never miss a feeding</h1>
+        <p class="lead measure-wide">Add each plant, note when you placed a BioPod, and watch a live countdown across the 8 to 10 week cycle. When a plant is due, get a calendar reminder so refeeding never slips.</p>
+      </div>
+    </section>
+
+    <section class="section tight" style="padding-top:0">
+      <div class="container">
+        <div class="reminder-bar reveal">
+          <p><strong>Reminders.</strong> Add a calendar event per plant, or turn on browser notifications.</p>
+          <button class="btn-sm solid" id="notify-btn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+            Enable browser reminders
+          </button>
+        </div>
+
+        <div class="portal-grid">
+          <!-- Add / edit form -->
+          <form class="panel reveal" id="plant-form" autocomplete="off" novalidate>
+            <h2 id="form-title">Add a plant</h2>
+            <input type="hidden" id="plant-id" />
+            <div class="field" style="margin-top:18px">
+              <label for="f-name">Plant name</label>
+              <input id="f-name" type="text" placeholder="e.g. Living room monstera" required />
+            </div>
+            <div class="field">
+              <label for="f-species">Species <span class="fineprint">(optional)</span></label>
+              <input id="f-species" type="text" placeholder="e.g. Monstera deliciosa" />
+            </div>
+            <div class="field">
+              <label for="f-pot">Pot size in inches <span class="fineprint">(optional)</span></label>
+              <input id="f-pot" type="number" min="2" max="48" placeholder="e.g. 10" />
+            </div>
+            <div class="field">
+              <label for="f-date">Date last fed</label>
+              <input id="f-date" type="date" required />
+            </div>
+            <div class="field">
+              <label for="f-cycle">Feeding cycle</label>
+              <div class="range-row"><input id="f-cycle" type="range" min="8" max="10" step="1" value="9" /><output id="f-cycle-out">9 weeks</output></div>
+            </div>
+            <div class="field">
+              <label for="f-notes">Notes <span class="fineprint">(optional)</span></label>
+              <input id="f-notes" type="text" placeholder="Anything to remember" />
+            </div>
+            <button class="btn btn-primary" type="submit" id="form-submit" style="width:100%">Add plant</button>
+            <button class="btn btn-text" type="button" id="form-cancel" style="width:100%;margin-top:8px;display:none">Cancel edit</button>
+            <p class="device-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+              Your plants are saved on this device and browser only. Nothing is sent to us.
+            </p>
+          </form>
+
+          <!-- Dashboard -->
+          <div class="reveal">
+            <div class="plant-cards" id="plant-list"></div>
+            <div class="empty" id="empty-state">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.4-.8-2.3-2.3-2.7-4.2 2-.3 3.4-.1 5.2.8Z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.1-1.9-.1-3.4.4-4.9 1.5Z"/></svg>
+              <h3>No plants yet</h3>
+              <p class="mt-1 measure" style="margin-inline:auto">Add your first plant on the left to start tracking its feeding cycle. Have not tried BioPod yet? <a href="contact.html#waitlist" style="color:var(--green-700);text-decoration:underline">Join the waitlist</a>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="note reveal mt-4" style="max-width:760px">
+          <strong>How reminders work.</strong> The calendar file is the dependable option: it adds a dated event to Apple or Google Calendar that reminds you even when this site is closed. Browser notifications only appear when your browser is running and you have granted permission.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about"><a class="brand" href="index.html" aria-label="BioPod home"><span><span class="brand-wordmark">BioPod</span><span class="tagline">Nature Simplified</span></span></a><p>Pre-measured plant food made from organic inputs, in a water-soluble pod. Drop one in, water as normal. No synthetic salts, no plastic.</p></div>
+        <div><h4>Explore</h4><ul class="footer-links"><li><a href="how-it-works.html">How It Works</a></li><li><a href="the-science.html">The Science</a></li><li><a href="indoor-plants.html">For Indoor Plants</a></li><li><a href="sustainability.html">Sustainability</a></li><li><a href="portal.html">Plant Care Portal</a></li></ul></div>
+        <div><h4>Company</h4><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="investors.html">Investors</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+        <div class="footer-cta"><h4>Stay in touch</h4><p>Be first to know when BioPod launches.</p><a class="btn btn-outline" href="contact.html#waitlist">Join the Waitlist</a><div class="socials mt-3"><a href="#" aria-label="BioPod on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="#" aria-label="BioPod on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05C21.2 8.65 22 11 22 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2.01 0-2.32 1.57-2.32 3.2V21h-4z"/></svg></a></div></div>
+      </div>
+      <div class="footer-bottom"><span>© <span data-year>2026</span> BioPod LLC. Made in the USA.</span><span class="fineprint" style="color:#7E866C;">Pre-launch. Product details and registration status subject to change.</span></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/portal.js" defer></script>
+</body>
+</html>

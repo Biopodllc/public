@@ -3,54 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bio-Pod — Organic plant food. Zero plastic. Zero measuring.</title>
-  <meta name="description" content="Bio-Pod is a pre-measured, biodegradable, 100% organic fertilizer pod. Drop one in the soil, water as normal — no scooping, no synthetic chemicals, no plastic waste." />
+  <title>BioPod · Nature Simplified. Pre-measured organic plant food for indoors.</title>
+  <meta name="description" content="BioPod is the first pre-measured organic fertilizer pod designed for indoor plants. Drop one in, water as normal. No scooping, no mixing, no burn risk, no plastic." />
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
-  <meta property="og:title" content="Bio-Pod — Organic plant food. Zero plastic. Zero measuring." />
-  <meta property="og:description" content="Pre-measured, biodegradable, 100% organic plant food. Drop one in, water as normal, done." />
+  <meta property="og:title" content="BioPod · Nature Simplified" />
+  <meta property="og:description" content="The first pre-measured organic fertilizer pod designed for indoor plants. Drop one in, water as normal." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://biopodllc.github.io/public/" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"BioPod","slogan":"Nature Simplified","url":"https://biopodllc.github.io/public/","description":"The first pre-measured organic fertilizer pod designed for indoor plants."}
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ============ HEADER ============ -->
+  <!-- ===================== HEADER ===================== -->
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="Bio-Pod home">
-        <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true">
-          <path d="M24 3C35 14 39 27 24 45C9 27 13 14 24 3Z" fill="#3C6B2E"/>
-          <path d="M24 3C35 14 39 27 24 45C24 31 24 16 24 3Z" fill="#5C8A45"/>
-          <path d="M24 12C22 22 22 33 24 41" stroke="#F7F3EA" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M24 21C26.4 24 29.6 25 31 25.6" stroke="#F7F3EA" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-          <path d="M24 28C21.6 31 18.4 32 17 32.6" stroke="#F7F3EA" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-        </svg>
-        Bio-Pod
+      <!-- TODO(owner): replace this wordmark lockup with assets/brand/logo.svg when provided. -->
+      <a class="brand" href="index.html" aria-label="BioPod, Nature Simplified, home">
+        <span>
+          <span class="brand-wordmark">BioPod</span>
+          <span class="tagline">Nature Simplified</span>
+        </span>
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="how-it-works.html">How It Works</a>
+        <a href="the-science.html">The Science</a>
+        <a href="indoor-plants.html">For Indoor Plants</a>
         <a href="sustainability.html">Sustainability</a>
-        <a href="about.html">About</a>
+        <a href="portal.html">Portal</a>
         <a href="investors.html">Investors</a>
-        <a href="faq.html">FAQ</a>
       </nav>
-      <div class="nav-cta">
-        <a class="btn btn-ghost" href="contact.html">Contact</a>
+      <div class="nav-right">
+        <a class="btn btn-text" href="contact.html">Contact</a>
         <a class="btn btn-primary" href="contact.html#waitlist">Join the Waitlist</a>
       </div>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="m-menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="m-menu"><span></span><span></span><span></span></button>
     </div>
     <div class="mobile-menu" id="m-menu">
       <a href="how-it-works.html">How It Works</a>
+      <a href="the-science.html">The Science</a>
+      <a href="indoor-plants.html">For Indoor Plants</a>
       <a href="sustainability.html">Sustainability</a>
-      <a href="about.html">About</a>
+      <a href="portal.html">Plant Care Portal</a>
       <a href="investors.html">Investors</a>
       <a href="faq.html">FAQ</a>
+      <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a class="btn btn-primary" href="contact.html#waitlist">Join the Waitlist</a>
     </div>
@@ -58,116 +62,68 @@
 
   <main id="main">
 
-    <!-- ============ HERO ============ -->
+    <!-- ===================== HERO ===================== -->
     <section class="hero">
-      <span class="bg-blob one"></span>
-      <span class="bg-blob two"></span>
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <span class="eyebrow">Organic plant food, reinvented</span>
-          <h1>Drop it in.<br />Water as normal.<br /><span class="accent">Watch it grow.</span></h1>
-          <p class="lead">Bio-Pod is a pre-measured, 100% organic plant food pod with a water-soluble shell. No scooping, no synthetic chemicals, and absolutely no plastic left behind.</p>
+          <span class="eyebrow">The first fertilizer designed for indoors</span>
+          <h1>Drop one in.<br />Water as normal.<br />Watch it grow.</h1>
+          <p class="lead">86 million American households own indoor plants, but every fertilizer on the shelf was built for farms and outdoor gardens. BioPod is the first pre-measured organic pod designed specifically for indoor use. No scooping, no mixing, no burn risk, no plastic left behind.</p>
           <div class="hero-cta">
-            <a class="btn btn-primary btn-lg" href="contact.html#waitlist">Join the Waitlist
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
+            <a class="btn btn-primary btn-lg" href="contact.html#waitlist">Join the Waitlist</a>
             <a class="btn btn-outline btn-lg" href="how-it-works.html">See how it works</a>
           </div>
-          <div class="hero-trust">
-            <span class="pill">🌱 100% Organic</span>
-            <span class="pill pill--clay">♻️ Zero Plastic</span>
-            <span class="pill pill--sand">📏 Pre-measured</span>
-            <span class="pill">🇺🇸 Made in the USA</span>
+          <div class="trust-strip">
+            <span class="item"><svg class="ico" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6"/></svg> Organic inputs</span>
+            <span class="item"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></svg> Zero plastic</span>
+            <span class="item"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg> Pre-measured dose</span>
+            <span class="item"><svg class="ico" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Made in the USA</span>
           </div>
         </div>
-
         <div class="hero-art reveal">
-          <svg viewBox="0 0 480 480" class="hero-illustration" role="img" aria-label="A Bio-Pod pod dropping into the soil, dissolving in water, and a seedling growing from the root zone">
-            <defs>
-              <clipPath id="panel"><rect x="0" y="0" width="480" height="480" rx="36"/></clipPath>
-              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDFBF3"/><stop offset="1" stop-color="#EAF1E0"/></linearGradient>
-              <linearGradient id="soilg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7A5A3A"/><stop offset="1" stop-color="#4E3A26"/></linearGradient>
-              <linearGradient id="podg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6E9E52"/><stop offset="1" stop-color="#3C6B2E"/></linearGradient>
-            </defs>
-            <g clip-path="url(#panel)">
-              <rect width="480" height="480" fill="url(#sky)"/>
-              <circle cx="376" cy="92" r="48" fill="#F2D98A" opacity=".65"/>
-              <path d="M0 296 Q120 250 250 286 T480 276 V480 H0 Z" fill="#D7E6C6" opacity=".75"/>
-              <path d="M0 330 Q130 302 250 324 T480 318 V480 H0 Z" fill="url(#soilg)"/>
-              <g fill="#8E6B45" opacity=".5"><ellipse cx="90" cy="380" rx="10" ry="5"/><ellipse cx="150" cy="410" rx="7" ry="4"/><ellipse cx="360" cy="395" rx="11" ry="5"/><ellipse cx="410" cy="430" rx="7" ry="4"/></g>
-              <!-- roots -->
-              <path d="M240 360 C 240 405, 208 422, 198 452 M240 360 C 240 408, 270 426, 282 454 M240 360 V 446" stroke="#BFE0A6" stroke-width="3" fill="none" stroke-linecap="round" opacity=".85"/>
-              <!-- sprout -->
-              <path d="M240 326 C 240 292, 240 258, 240 228" stroke="#3C6B2E" stroke-width="6" fill="none" stroke-linecap="round"/>
-              <path d="M240 270 C 220 258, 202 262, 192 280 C 212 290, 232 286, 240 270Z" fill="#5C8A45"/>
-              <path d="M240 250 C 260 238, 278 242, 288 260 C 268 270, 248 266, 240 250Z" fill="#6E9E52"/>
-              <!-- falling pod -->
-              <g transform="translate(152 116)">
-                <path d="M0 0 C 30 26, 36 54, 0 94 C -36 54, -30 26, 0 0Z" fill="url(#podg)"/>
-                <path d="M0 20 C -3 44, -3 68, 0 86" stroke="#EAF1E0" stroke-width="3" fill="none" stroke-linecap="round"/>
-                <path d="M0 40 C 7 47, 14 49, 18 50" stroke="#EAF1E0" stroke-width="2" fill="none" stroke-linecap="round"/>
-              </g>
-              <!-- dissolve trail -->
-              <path d="M152 210 C 172 250, 202 286, 236 318" stroke="#5C8A45" stroke-width="3" stroke-dasharray="2 10" fill="none" stroke-linecap="round" opacity=".6"/>
-              <!-- water drops -->
-              <g fill="#9CC8E0" opacity=".85">
-                <path d="M324 150c8 10 8 19 0 25c-8-6-8-15 0-25Z"/>
-                <path d="M356 188c6 8 6 14 0 19c-6-5-6-11 0-19Z"/>
-                <path d="M300 196c5 6 5 11 0 15c-5-4-5-9 0-15Z"/>
-              </g>
-            </g>
-            <rect x="1" y="1" width="478" height="478" rx="36" fill="none" stroke="#E0D6C2"/>
-          </svg>
+          <figure class="photo ar-square">
+            <!-- PHOTO hero-hand-placing: a hand placing a BioPod into a potted houseplant, brand text facing camera. Aspect 1:1. Overwrite assets/photos/hero-hand-placing.jpg -->
+            <img src="assets/photos/hero-hand-placing.jpg?v=3" alt="A hand placing a BioPod pod into a potted houseplant" width="720" height="720" onerror="this.hidden=true" />
+            <figcaption class="ph-inner">
+              <svg class="ico" viewBox="0 0 24 24" style="width:32px;height:32px"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="ph-cap">Placeholder, final product photography to come</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <!-- ============ TRUST BAR ============ -->
-    <div class="trustbar">
-      <div class="container row">
-        <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6"/></svg> 100% organic inputs</span>
-        <span class="sep" aria-hidden="true"></span>
-        <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></svg> No plastic — ever</span>
-        <span class="sep" aria-hidden="true"></span>
-        <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="15" r="6"/><path d="M9 9 7 3h10l-2 6"/></svg> Award-winning venture</span>
-        <span class="sep" aria-hidden="true"></span>
-        <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 7.8 8 9 4.6-1.2 8-4 8-9V5Z"/><path d="m9 12 2 2 4-4"/></svg> Patent-pending</span>
-      </div>
-    </div>
-
-    <!-- ============ PROBLEM → SOLUTION ============ -->
-    <section class="section">
+    <!-- ===================== PROBLEM ===================== -->
+    <section class="section section--alt">
       <div class="container">
         <div class="section-head center reveal">
           <span class="eyebrow">The problem</span>
-          <h2>Feeding your plants shouldn't cost the planet</h2>
-          <p>Conventional plant food asks you to choose between convenience and conscience. Bio-Pod refuses the trade-off.</p>
+          <h2>Why feeding indoor plants goes wrong</h2>
+          <p class="lead">According to our research and conversations with indoor plant owners, the same frustrations come up again and again. These are the barriers that keep people from feeding their plants well.</p>
         </div>
-        <div class="grid grid-3">
-          <div class="card card--clay reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.3 15.3 8.7 2.7a1 1 0 0 0-1.4 0L2.7 7.3a1 1 0 0 0 0 1.4l12.6 12.6a1 1 0 0 0 1.4 0l4.6-4.6a1 1 0 0 0 0-1.4Z"/><path d="m7.5 10.5 2 2M11 7l1.5 1.5M14.5 3.5l2 2"/></svg></div>
-            <h3>Messy guesswork</h3>
-            <p>Scooping, diluting, and eyeballing doses means it's easy to over-feed, burn roots, or waste product.</p>
+        <div class="grid cols-3">
+          <div class="card reveal">
+            <span class="icon-chip"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 5 3.4 7.7 7 9 3.6-1.3 7-4 7-9V6Z"/><path d="M12 8v4M12 16h.01"/></svg></span>
+            <h3>Fear of killing plants</h3>
+            <p>The number one barrier to plant ownership is not light or watering. It is the fear of incorrect fertilizer application. Measuring cups, chemical ratios, and dosing caps create anxiety that keeps people from feeding their plants at all.</p>
           </div>
-          <div class="card card--clay reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v7.5L4.6 18A2 2 0 0 0 6.3 21h11.4a2 2 0 0 0 1.7-3.1L14 9.5V2"/><path d="M8.5 2h7"/></svg></div>
-            <h3>Synthetic chemicals</h3>
-            <p>Most fertilizers rely on synthetic salts that wash into waterways and feed the algae blooms choking our rivers and coasts.</p>
+          <div class="card reveal">
+            <span class="icon-chip"><svg class="ico" viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l5-4 5 4v13M9 21v-4h2v4"/><path d="M19 21V11l-4-3"/></svg></span>
+            <h3>Products built for the wrong customer</h3>
+            <p>The fertilizer industry was designed for commercial farms, lawns, and outdoor gardens. Indoor plant owners in apartments, dorm rooms, and offices are being served products that assume horticultural expertise they do not have.</p>
           </div>
-          <div class="card card--clay reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></svg></div>
-            <h3>Plastic waste</h3>
-            <p>Bottles, bags, and resin-coated granules leave plastic in your soil and in the landfill long after the nutrients are gone.</p>
+          <div class="card reveal">
+            <span class="icon-chip"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></svg></span>
+            <h3>Plastic and synthetic runoff</h3>
+            <p>Bottles, bags, and resin-coated granules leave plastic in soil and landfills. Synthetic salt fertilizers wash into waterways, fueling the algae blooms choking rivers and coasts across the Gulf region and beyond.</p>
           </div>
         </div>
-        <div class="note-box reveal mt-4" style="text-align:center;">
-          <strong>One pod solves all three.</strong> 100% organic · pre-measured · water-soluble shell that simply melts into the soil.
-        </div>
+        <p class="note center reveal mt-4" style="max-width:760px;margin-inline:auto;"><strong>One pod solves all three.</strong> Made from organic inputs, pre-measured, with a water-soluble shell that simply dissolves into the soil.</p>
       </div>
     </section>
 
-    <!-- ============ HOW IT WORKS ============ -->
-    <section class="section section--cream">
+    <!-- ===================== HOW IT WORKS ===================== -->
+    <section class="section">
       <div class="container">
         <div class="section-head center reveal">
           <span class="eyebrow">How it works</span>
@@ -175,223 +131,185 @@
         </div>
         <div class="steps">
           <div class="step reveal">
-            <div class="step-no">1</div>
-            <h3>Drop a pod</h3>
-            <p>Place one pre-measured Bio-Pod at the base of your plant or just under the soil. The dose is already perfect — nothing to scoop or weigh.</p>
+            <figure class="photo ar-landscape">
+              <!-- PHOTO step-1-drop: pod resting at the soil base, close. Aspect 3:2. Overwrite assets/photos/step-1-drop.jpg -->
+              <img src="assets/photos/step-1-drop.jpg?v=3" alt="A BioPod pod resting on the soil at the base of a plant" width="900" height="600" loading="lazy" onerror="this.hidden=true" />
+              <figcaption class="ph-inner"><svg class="ico" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="ph-cap">Placeholder, final product photography to come</span></figcaption>
+            </figure>
+            <span class="step-k"><span class="n">1</span> Drop</span>
+            <h3>Place a pod</h3>
+            <p>Set one pre-measured BioPod at the base of your plant or just below the soil. The dose is already calibrated. There is nothing to scoop, weigh, or dilute.</p>
           </div>
           <div class="step reveal">
-            <div class="step-no">2</div>
+            <figure class="photo ar-landscape">
+              <!-- PHOTO step-2-water: water hitting the pod, shell wetting. Aspect 3:2. Overwrite assets/photos/step-2-water.jpg -->
+              <img src="assets/photos/step-2-water.jpg?v=3" alt="Water poured over a BioPod pod as its shell begins to wet" width="900" height="600" loading="lazy" onerror="this.hidden=true" />
+              <figcaption class="ph-inner"><svg class="ico" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="ph-cap">Placeholder, final product photography to come</span></figcaption>
+            </figure>
+            <span class="step-k"><span class="n">2</span> Water</span>
             <h3>Water as normal</h3>
-            <p>Water like you always do. The cellulose shell dissolves on contact and carries a balanced organic nutrient blend straight to the root zone.</p>
+            <p>Water the way you always do. The cellulose shell dissolves in 30 to 90 seconds on contact with water and carries a balanced nutrient blend straight to the root zone.</p>
           </div>
           <div class="step reveal">
-            <div class="step-no">3</div>
+            <figure class="photo ar-landscape">
+              <!-- PHOTO step-3-grow: healthy plant, optional BioPod marker. Aspect 3:2. Overwrite assets/photos/step-3-grow.jpg -->
+              <img src="assets/photos/step-3-grow.jpg?v=3" alt="A healthy, thriving houseplant" width="900" height="600" loading="lazy" onerror="this.hidden=true" />
+              <figcaption class="ph-inner"><svg class="ico" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="ph-cap">Placeholder, final product photography to come</span></figcaption>
+            </figure>
+            <span class="step-k"><span class="n">3</span> Grow</span>
             <h3>Watch it grow</h3>
-            <p>Nutrients release gently as the pod breaks down, feeding both your plant and the living soil around it. No residue, no leftover plastic.</p>
+            <p>Nutrients release gradually as the pod breaks down over 8 to 10 weeks, feeding both your plant and the living soil around it. No residue, no leftover plastic, nothing to remove.</p>
           </div>
         </div>
+        <p class="center mt-4 reveal"><a class="btn btn-text" href="how-it-works.html">Go deeper on how it works <span class="arrow">&rarr;</span></a></p>
       </div>
     </section>
 
-    <!-- ============ BENEFITS ============ -->
-    <section class="section">
+    <!-- ===================== WHY BIOPOD ===================== -->
+    <section class="section section--alt">
       <div class="container">
         <div class="section-head center reveal">
-          <span class="eyebrow">Why Bio-Pod</span>
+          <span class="eyebrow">Why BioPod</span>
           <h2>Everything good plant food should be</h2>
         </div>
-        <div class="grid grid-3">
-          <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.3 15.3 8.7 2.7a1 1 0 0 0-1.4 0L2.7 7.3a1 1 0 0 0 0 1.4l12.6 12.6a1 1 0 0 0 1.4 0l4.6-4.6a1 1 0 0 0 0-1.4Z"/></svg></div><h3>Perfectly pre-measured</h3><p>One pod is one dose. No more over- or under-feeding — and no math.</p></div>
-          <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6"/></svg></div><h3>100% organic</h3><p>A blend of plant- and ocean-derived nutrients with beneficial soil microbes — zero synthetic salts.</p></div>
-          <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></svg></div><h3>Zero plastic</h3><p>From the dissolving shell to the packaging, there's nothing to throw away and nothing left in your soil.</p></div>
-          <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></svg></div><h3>Pet & kid friendly</h3><p>No harsh chemicals to worry about when little hands and paws are in the garden.</p></div>
-          <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S12.5 5 12 2.5C11.5 5 10 7.9 8 9.5S5 13 5 15a7 7 0 0 0 7 7Z"/></svg></div><h3>Mess-free & odor-light</h3><p>No spills, no clouds of dust, no lingering fertilizer smell on your hands.</p></div>
-          <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 17l9 5 9-5"/></svg></div><h3>Feeds the soil, too</h3><p>Living microbes help build healthier, more resilient soil over time — not just a quick green-up.</p></div>
+        <div class="grid cols-3">
+          <div class="card reveal"><span class="icon-chip"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 5 3.4 7.7 7 9 3.6-1.3 7-4 7-9V6Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Zero burn risk at any dose</h3><p>Even if you accidentally place two pods in one pot, the organic formulation makes chemical burn impossible. This directly addresses the number one fear plant owners told us about, killing their plants through incorrect application.</p></div>
+          <div class="card reveal"><span class="icon-chip"><svg class="ico" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-5h4v5"/></svg></span><h3>Truly designed for indoors</h3><p>No measuring cups, no dusty bags, no mixing in watering cans. BioPod was built for apartments, dorm rooms, offices, and small spaces where traditional fertilizer products are impractical, messy, or intimidating.</p></div>
+          <div class="card reveal"><span class="icon-chip"><svg class="ico" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6"/></svg></span><h3>Organic inputs, not synthetic salts</h3><p>A blend of plant-derived and ocean-derived nutrients with beneficial soil microbes. No synthetic salts that risk root burn or wash nitrogen and phosphorus into waterways.</p></div>
+          <div class="card reveal"><span class="icon-chip"><svg class="ico" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></svg></span><h3>Pet and kid safe</h3><p>No harsh synthetic chemicals to worry about when little hands and paws are in the garden. The organic formulation and cellulose shell are non-toxic and safe for all plant species, soil microbes, pets, and children.</p></div>
+          <div class="card reveal"><span class="icon-chip"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg></span><h3>One pod, one full feeding</h3><p>Each pod is precisely dosed for one plant. No more guessing whether you added too much or too little. One 12-pack of BioPod feeds a single indoor plant for an entire year.</p></div>
+          <div class="card reveal"><span class="icon-chip"><svg class="ico" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg></span><h3>Feeds the soil, not just the plant</h3><p>Beneficial microbes build healthier, more resilient soil over time. This is a soil-health system, not just a quick green-up. The difference shows in months, not days, and it compounds.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ WHAT'S INSIDE ============ -->
-    <section class="section section--cream">
+    <!-- ===================== INSIDE THE POD ===================== -->
+    <section class="section">
       <div class="container split">
         <div class="reveal">
-          <span class="eyebrow">What's inside</span>
+          <span class="eyebrow">Inside the pod</span>
           <h2>A water-soluble shell and a living nutrient blend</h2>
-          <p class="mt-2">Bio-Pod starts with a paper-thin cellulose shell — the same plant fiber as paper — that dissolves the moment it meets water. Inside is a balanced organic blend designed to feed plants and soil alike.</p>
-          <div class="inside-list mt-3">
-            <div class="inside-row"><span class="dot" style="background:#C9A227"></span><div><h4>Plant proteins</h4><p>Slow-release nitrogen from plant meals for steady, gentle growth.</p></div></div>
-            <div class="inside-row"><span class="dot" style="background:#3C6B2E"></span><div><h4>Sea kelp</h4><p>Trace minerals and natural growth compounds from ocean seaweed.</p></div></div>
-            <div class="inside-row"><span class="dot" style="background:#C06A3D"></span><div><h4>Mineral potassium</h4><p>For strong roots, blooms, and fruit.</p></div></div>
-            <div class="inside-row"><span class="dot" style="background:#5C8A45"></span><div><h4>Beneficial soil microbes</h4><p>Living organisms that help unlock nutrients and build healthy soil.</p></div></div>
-          </div>
-          <p class="fineprint mt-3">Full ingredient details will appear on the product label at launch. Bio-Pod contains no synthetic salts, fillers, or plastic.</p>
+          <p class="mt-2">BioPod starts with a cellulose shell made from FSC-sourced wood pulp fibers. It is the same plant fiber family as paper, fully biodegradable, non-toxic, and it dissolves in soil within 30 to 90 seconds when watered, leaving zero residue.</p>
+          <p>Inside the shell is a balanced blend built on four natural pillars:</p>
+          <ul class="checklist">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg><span>Plant proteins for slow-release nitrogen and steady, gentle growth</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg><span>Sea kelp for trace minerals, natural growth compounds, and over 60 micronutrients</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg><span>Mineral potassium for strong roots, blooms, and visible greening</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg><span>Beneficial soil microbes that colonize the root zone, suppress root disease, and build long-term soil health</span></li>
+          </ul>
+          <p class="mt-2">Each pillar is individually backed by published, peer-reviewed scientific literature. The combination and the multi-compartment delivery architecture are patent-pending.</p>
+          <p class="mt-3"><a class="btn btn-text" href="the-science.html">See the science and full analysis <span class="arrow">&rarr;</span></a></p>
+          <p class="fineprint mt-3">Full ingredient details and guaranteed analysis will appear on the product label at launch. Greenhouse trials and chemical nutrient release analysis are currently in progress.</p>
         </div>
-        <div class="media-card reveal">
-          <svg viewBox="0 0 360 300" role="img" aria-label="Cutaway of a Bio-Pod showing the cellulose shell dissolving and nutrients releasing into the soil">
-            <defs><linearGradient id="pod2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6E9E52"/><stop offset="1" stop-color="#3C6B2E"/></linearGradient></defs>
-            <rect width="360" height="300" rx="20" fill="#FDFBF3"/>
-            <g transform="translate(180 150)">
-              <ellipse cx="0" cy="0" rx="86" ry="104" fill="url(#pod2)"/>
-              <ellipse cx="0" cy="0" rx="66" ry="84" fill="#EAF1E0"/>
-              <circle cx="-22" cy="-30" r="9" fill="#C9A227"/><circle cx="20" cy="-44" r="8" fill="#3C6B2E"/>
-              <circle cx="28" cy="6" r="10" fill="#C06A3D"/><circle cx="-30" cy="22" r="8" fill="#5C8A45"/>
-              <circle cx="6" cy="40" r="9" fill="#C9A227"/><circle cx="-4" cy="-2" r="7" fill="#6E9E52"/>
-              <circle cx="34" cy="-16" r="6" fill="#5C8A45"/><circle cx="-34" cy="-8" r="6" fill="#C06A3D"/>
-            </g>
-            <path d="M30 250c40 0 60 14 90 14s50-14 90-14 60 14 90 14 30-8 30-8" stroke="#C9B79B" stroke-width="3" fill="none" stroke-dasharray="3 8" stroke-linecap="round"/>
-          </svg>
-          <p class="fineprint center mt-2">Illustrative — final product photography to come.</p>
-        </div>
+        <figure class="photo ar-square reveal">
+          <!-- PHOTO product-hero-seamless: pod alone on a clean seamless background. Aspect 1:1. Overwrite assets/photos/product-hero-seamless.jpg -->
+          <img src="assets/photos/product-hero-seamless.jpg?v=3" alt="A single BioPod pod on a clean seamless background" width="720" height="720" loading="lazy" onerror="this.hidden=true" />
+          <figcaption class="ph-inner"><svg class="ico" viewBox="0 0 24 24" style="width:32px;height:32px"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="ph-cap">Placeholder, final product photography to come</span></figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- ============ COMPARISON ============ -->
-    <section class="section">
+    <!-- ===================== COMPARISON ===================== -->
+    <section class="section section--alt">
       <div class="container">
         <div class="section-head center reveal">
           <span class="eyebrow">How we compare</span>
-          <h2>The only one that checks every box</h2>
-          <p>How Bio-Pod stacks up against the common ways people feed their plants today.</p>
+          <h2>No other product was designed for indoor plant owners</h2>
+          <p>Every fertilizer on the shelf today was built for farms, lawns, and outdoor gardens, then marketed to indoor plant owners as an afterthought. Here is how BioPod compares with the common product categories available today.</p>
         </div>
-        <div class="compare-wrap reveal">
-          <table class="compare">
-            <thead>
-              <tr>
-                <th>&nbsp;</th>
-                <th class="us">Bio-Pod</th>
-                <th>Synthetic slow-release granules</th>
-                <th>Liquid concentrates</th>
-                <th>Compressed spikes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><th>100% organic</th>
-                <td class="us"><svg class="yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td>
-                <td><svg class="no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></td>
-                <td>Sometimes</td>
-                <td>Sometimes</td></tr>
-              <tr><th>Pre-measured (no scooping)</th>
-                <td class="us"><svg class="yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td>
-                <td><svg class="no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></td>
-                <td><svg class="no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></td>
-                <td><svg class="yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td></tr>
-              <tr><th>No measuring or mixing</th>
-                <td class="us"><svg class="yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td>
-                <td>Partial</td>
-                <td><svg class="no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></td>
-                <td><svg class="yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td></tr>
-              <tr><th>Zero plastic left behind</th>
-                <td class="us"><svg class="yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td>
-                <td><svg class="no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></td>
-                <td><svg class="no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></td>
-                <td><svg class="no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></td></tr>
-              <tr><th>Feeds soil microbes</th>
-                <td class="us"><svg class="yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td>
-                <td><svg class="no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></td>
-                <td>Sometimes</td>
-                <td>Sometimes</td></tr>
-            </tbody>
-          </table>
+        <div class="reveal">
+          <div class="compare-scroll">
+            <table class="compare">
+              <thead>
+                <tr><th scope="col">&nbsp;</th><th scope="col" class="col-us">BioPod</th><th scope="col">Synthetic granules</th><th scope="col">Liquid concentrates</th><th scope="col">Compressed spikes</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Designed for indoor use</th><td class="col-us"><svg class="mark-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td></tr>
+                <tr><th scope="row">Organic inputs</th><td class="col-us"><svg class="mark-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td><td>Some</td><td>Some</td></tr>
+                <tr><th scope="row">Pre-measured, no scooping</th><td class="col-us"><svg class="mark-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td><td><svg class="mark-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td></tr>
+                <tr><th scope="row">No measuring or mixing</th><td class="col-us"><svg class="mark-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td><td>Partial</td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td><td><svg class="mark-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td></tr>
+                <tr><th scope="row">Zero plastic left behind</th><td class="col-us"><svg class="mark-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td></tr>
+                <tr><th scope="row">Zero burn risk at any dose</th><td class="col-us"><svg class="mark-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td></tr>
+                <tr><th scope="row">Feeds soil microbes</th><td class="col-us"><svg class="mark-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td><td>Some</td><td>Some</td></tr>
+                <tr><th scope="row">Multi-compartment staged release</th><td class="col-us"><svg class="mark-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td><td><svg class="mark-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 12h12"/></svg></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="scroll-hint">Scroll the table sideways to compare.</p>
+          <p class="cite mt-3">Comparison reflects common product categories, not any single brand. Category traits drawn from public retailer listings.</p>
         </div>
-        <p class="cite center mt-3">Comparison reflects common product categories, not any single brand. Category traits drawn from public retailer listings, June 2026.</p>
       </div>
     </section>
 
-    <!-- ============ MISSION / SUSTAINABILITY TEASER ============ -->
-    <section class="section section--forest">
-      <div class="container">
-        <div class="split">
-          <div class="reveal">
-            <span class="eyebrow">Our mission</span>
-            <h2>Small pod. Real impact.</h2>
-            <p class="mt-2">Bio-Pod was founded by an environmental scientist who studies how everyday products end up in our water. Conventional plant care is part of the problem — and a pod is a simple, scalable part of the solution.</p>
-            <div class="stats mt-4" style="grid-template-columns:repeat(2,1fr);gap:28px;">
-              <div class="stat"><div class="num">~9%</div><div class="lbl">of all plastic ever made has been recycled<sup class="ref">1</sup></div></div>
-              <div class="stat"><div class="num">~2%</div><div class="lbl">of global greenhouse emissions come from synthetic-N fertilizer supply<sup class="ref">2</sup></div></div>
-            </div>
-            <a class="btn on-dark btn-outline mt-4" href="sustainability.html">Read our impact story</a>
+    <!-- ===================== MISSION ===================== -->
+    <section class="section section--dark">
+      <div class="container split">
+        <div class="reveal">
+          <span class="eyebrow">Our mission</span>
+          <h2>Small pod. Real intent.</h2>
+          <p class="mt-2">BioPod was founded by an environmental scientist who studies how everyday consumer products reach our water. Conventional plant care is part of that story. Over-application of synthetic fertilizers contributes to harmful algal blooms and hypoxic dead zones in the Gulf of Mexico. A pre-measured pod that makes over-application physically impossible is a small, scalable part of the answer.</p>
+          <div class="stats mt-4">
+            <div class="stat"><div class="num">~9%</div><div class="lbl">of all plastic ever made has been recycled<sup class="ref">1</sup></div></div>
+            <div class="stat"><div class="num">~2%</div><div class="lbl">of global greenhouse emissions trace to synthetic nitrogen fertilizer supply<sup class="ref">2</sup></div></div>
           </div>
-          <div class="reveal">
-            <div class="card" style="background:#20351a;border-color:#2c4421;">
-              <p class="quote" style="color:#FBF7EC;">"I kept finding the same story in my research: convenient products, hidden costs downstream. Bio-Pod is my answer — feed your plants without feeding the problem."</p>
-              <p class="quote-meta" style="color:#9CC183;">Natasha Syed · Founder &amp; Chief Scientist</p>
-            </div>
-          </div>
+          <a class="btn btn-outline mt-4" href="sustainability.html">Read our impact story</a>
+          <p class="cite mt-4" style="color:#7E866C;">1. OECD, Global Plastics Outlook. 2. Scientific Reports (Nature). Full sources on the <a href="sustainability.html" style="color:var(--green-200)">Sustainability</a> page.</p>
         </div>
-        <p class="cite mt-4" style="color:#8c917e;">
-          1. OECD, <em>Global Plastics Outlook</em>, 2022. 2. <em>Scientific Reports</em> (Nature), 2022. Full sources on our <a href="sustainability.html" style="color:#9CC183;">Sustainability</a> page.
-        </p>
+        <div class="reveal">
+          <blockquote class="pullquote">"I kept finding the same pattern in my research. Convenient products, hidden costs downstream. BioPod is my answer. Feed your plants without feeding the problem."</blockquote>
+          <p class="pullquote-meta">Natasha Syed, Founder and CEO</p>
+        </div>
       </div>
     </section>
 
-    <!-- ============ AWARDS ============ -->
+    <!-- ===================== FAQ TEASER ===================== -->
     <section class="section">
-      <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Recognition</span>
-          <h2>Backed by judges, scientists, and early believers</h2>
-        </div>
-        <div class="awards">
-          <div class="award reveal"><span class="medal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="15" r="6"/><path d="M9 9 7 3h10l-2 6"/></svg></span><div><h4>Pelican Cup — 3rd place</h4><p>Recognized among Louisiana's standout student ventures.</p></div></div>
-          <div class="award reveal"><span class="medal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="15" r="6"/><path d="M9 9 7 3h10l-2 6"/></svg></span><div><h4>UL Lafayette Entrepreneurship — 4th place</h4><p>Honored in the university's pitch competition.</p></div></div>
-          <div class="award reveal"><span class="medal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 7.8 8 9 4.6-1.2 8-4 8-9V5Z"/><path d="m9 12 2 2 4-4"/></svg></span><div><h4>Patent-pending technology</h4><p>A protected approach to the water-soluble pod.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ FAQ TEASER ============ -->
-    <section class="section section--cream">
       <div class="container narrow">
         <div class="section-head center reveal">
           <span class="eyebrow">Good questions</span>
-          <h2>Bio-Pod, briefly</h2>
+          <h2>BioPod, briefly</h2>
         </div>
         <div class="accordion reveal">
-          <div class="acc-item"><button class="acc-q" aria-expanded="false">How do I use a Bio-Pod?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button><div class="acc-a"><div class="acc-a-inner">Place one pod at the base of your plant or just below the soil surface, then water as you normally would. The shell dissolves and the nutrients release into the root zone.</div></div></div>
-          <div class="acc-item"><button class="acc-q" aria-expanded="false">Is it really 100% organic?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button><div class="acc-a"><div class="acc-a-inner">Yes. Bio-Pod is made from organic plant- and ocean-derived inputs and beneficial microbes, with no synthetic salts or chemicals.</div></div></div>
-          <div class="acc-item"><button class="acc-q" aria-expanded="false">What happens to the shell?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button><div class="acc-a"><div class="acc-a-inner">The shell is water-soluble cellulose — the same fiber as paper. It dissolves into the soil and leaves nothing behind. No plastic, no microplastics.</div></div></div>
-          <div class="acc-item"><button class="acc-q" aria-expanded="false">When can I buy it?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button><div class="acc-a"><div class="acc-a-inner">Bio-Pod is preparing for launch. Join the waitlist and you'll be first to know — and first to grow.</div></div></div>
+          <div class="acc-item"><button class="acc-q" aria-expanded="false">How do I use a BioPod?<span class="pm"></span></button><div class="acc-a"><div class="acc-a-inner">Place one pod at the base of your plant or just below the soil surface, then water as you normally would. The shell dissolves in 30 to 90 seconds and the nutrients release into the root zone over 8 to 10 weeks. One 12-pack feeds one indoor plant for a full year.</div></div></div>
+          <div class="acc-item"><button class="acc-q" aria-expanded="false">Is it safe around pets and children?<span class="pm"></span></button><div class="acc-a"><div class="acc-a-inner">Yes. BioPod is made entirely from organic, plant-derived and ocean-derived inputs. There are no synthetic chemicals, and the cellulose shell is non-toxic and fully biodegradable. It is safe for all plant species, soil organisms, pets, and children.</div></div></div>
+          <div class="acc-item"><button class="acc-q" aria-expanded="false">Can I overfeed my plant with BioPod?<span class="pm"></span></button><div class="acc-a"><div class="acc-a-inner">No. Even placing two pods in one pot will not cause chemical burn. The organic formulation and natural buffering make overdose impossible. This is the core design principle, a fertilizer you cannot get wrong.</div></div></div>
+          <div class="acc-item"><button class="acc-q" aria-expanded="false">What happens to the shell?<span class="pm"></span></button><div class="acc-a"><div class="acc-a-inner">The shell is made from FSC-sourced wood pulp cellulose, the same fiber family as paper. It dissolves in soil within 30 to 90 seconds when watered, biodegrades fully, and leaves zero residue. No plastic, no microplastics.</div></div></div>
+          <div class="acc-item"><button class="acc-q" aria-expanded="false">When can I buy it?<span class="pm"></span></button><div class="acc-a"><div class="acc-a-inner">BioPod is in its final validation phase, with controlled greenhouse trials and chemical nutrient analysis in progress. Join the waitlist and you will be the first to know when it launches.</div></div></div>
         </div>
-        <p class="center mt-3"><a class="btn btn-ghost" href="faq.html">See all FAQs →</a></p>
+        <p class="center mt-3 reveal"><a class="btn btn-text" href="faq.html">Read all FAQs <span class="arrow">&rarr;</span></a></p>
       </div>
     </section>
 
-    <!-- ============ FINAL CTA ============ -->
-    <section class="section">
+    <!-- ===================== CTA ===================== -->
+    <section class="section tight">
       <div class="container">
-        <div class="cta-band reveal">
-          <span class="eyebrow" style="color:var(--green-300)">Be first to grow</span>
-          <h2>Join the Bio-Pod waitlist</h2>
-          <p>Get launch news, early-access offers, and growing tips. No spam — just the good stuff, like a healthy garden.</p>
-          <form class="waitlist mt-4" data-demo aria-label="Join the waitlist">
-            <label class="skip-link" for="home-email">Email address</label>
-            <input id="home-email" type="email" name="email" placeholder="you@email.com" required />
-            <button class="btn btn-clay" type="submit">Join the Waitlist</button>
-          </form>
-          <p class="form-success">🌱 You're on the list! We'll be in touch soon.</p>
+        <div class="cta reveal">
+          <span class="eyebrow">Be first to grow</span>
+          <h2>Join the BioPod waitlist</h2>
+          <p>Get launch news, early access, and growing tips delivered to your inbox. It takes twenty seconds, and there is no spam.</p>
+          <p class="mt-3"><a class="btn btn-primary btn-lg" href="contact.html#waitlist">Join the Waitlist</a></p>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ============ FOOTER ============ -->
+  <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
-          <a class="brand" href="index.html" aria-label="Bio-Pod home">
-            <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3C35 14 39 27 24 45C9 27 13 14 24 3Z" fill="#9CC183"/><path d="M24 12C22 22 22 33 24 41" stroke="#20351a" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
-            Bio-Pod
-          </a>
-          <p>Pre-measured, biodegradable, 100% organic plant food. Drop one in, water as normal, done — zero synthetic chemicals, zero plastic waste.</p>
+          <a class="brand" href="index.html" aria-label="BioPod home"><span><span class="brand-wordmark">BioPod</span><span class="tagline">Nature Simplified</span></span></a>
+          <p>The first pre-measured organic fertilizer pod designed for indoor plants. Drop one in, water as normal. No synthetic salts, no plastic.</p>
         </div>
         <div>
           <h4>Explore</h4>
           <ul class="footer-links">
             <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="the-science.html">The Science</a></li>
+            <li><a href="indoor-plants.html">For Indoor Plants</a></li>
             <li><a href="sustainability.html">Sustainability</a></li>
-            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="portal.html">Plant Care Portal</a></li>
           </ul>
         </div>
         <div>
@@ -399,27 +317,25 @@
           <ul class="footer-links">
             <li><a href="about.html">About</a></li>
             <li><a href="investors.html">Investors</a></li>
+            <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
           </ul>
         </div>
-        <div>
+        <div class="footer-cta">
           <h4>Stay in touch</h4>
-          <p style="color:#B0AA98;font-size:.95rem;">Join the waitlist for launch news and early access.</p>
-          <form class="footer-news" data-demo aria-label="Newsletter signup">
-            <label class="skip-link" for="foot-email">Email</label>
-            <input id="foot-email" type="email" name="email" placeholder="you@email.com" required />
-            <button type="submit">Join</button>
-          </form>
-          <p class="form-success">🌱 You're on the list!</p>
+          <p>Be first to know when BioPod launches.</p>
+          <a class="btn btn-outline" href="contact.html#waitlist">Join the Waitlist</a>
           <div class="socials mt-3">
-            <a href="#" aria-label="Bio-Pod on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-            <a href="#" aria-label="Bio-Pod on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05C21.2 8.65 22 11 22 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2.01 0-2.32 1.57-2.32 3.2V21h-4z"/></svg></a>
+            <!-- TODO(owner): set real profile URLs -->
+            <a href="#" aria-label="BioPod on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" aria-label="BioPod on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05C21.2 8.65 22 11 22 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2.01 0-2.32 1.57-2.32 3.2V21h-4z"/></svg></a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© <span data-year>2026</span> Bio-Pod LLC · Made in the USA 🌱</span>
-        <span class="fineprint" style="color:#8c917e;">Pre-launch — product details subject to change.</span>
+        <span>© <span data-year>2026</span> BioPod LLC. Made in the USA.</span>
+        <span class="fineprint" style="color:#7E866C;">Pre-launch. Product details and registration status subject to change.</span>
       </div>
     </div>
   </footer>

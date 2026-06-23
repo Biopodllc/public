@@ -181,6 +181,8 @@ strong { color: var(--ink-900); font-weight: 600; }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 76px; }
 .brand { display: inline-flex; align-items: center; gap: .6rem; }
 .brand img { height: 34px; width: auto; }
+.brand .brand-logo { height: 50px; width: auto; display: block; }
+@media (max-width: 600px) { .brand .brand-logo { height: 42px; } }
 .brand-wordmark { font-family: var(--font-body); font-weight: 800; font-size: 1.28rem;
   letter-spacing: .04em; text-transform: uppercase; color: var(--green-900); }
 .brand .tagline { font-size: .62rem; letter-spacing: .22em; text-transform: uppercase;

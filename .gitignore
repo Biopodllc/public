@@ -10,3 +10,6 @@ secrets.*
 # Office temp / lock files
 ~$*
 .~lock.*
+
+# Local tool state (never publish)
+.wrangler/

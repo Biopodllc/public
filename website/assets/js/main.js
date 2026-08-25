@@ -39,17 +39,135 @@
     });
   });
 
-  /* ----- Scroll reveal ----- */
-  var reveals = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window && reveals.length) {
+  /* ----- Scroll reveal -----
+     IntersectionObserver handles the normal case. It can, however, miss an
+     element that enters and leaves the viewport between two of its callbacks
+     during very fast scrolling, and a missed element would stay invisible for
+     good. So a cheap sweep runs alongside it and reveals anything that has
+     reached the viewport, whether or not the observer noticed. Content can
+     never end up permanently hidden. */
+  var pending = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+
+  function show(el) {
+    el.classList.add("in");
+    var at = pending.indexOf(el);
+    if (at > -1) pending.splice(at, 1);
+  }
+
+  function sweep() {
+    for (var i = pending.length - 1; i >= 0; i--) {
+      if (pending[i].getBoundingClientRect().top < window.innerHeight) show(pending[i]);
+    }
+  }
+
+  if ("IntersectionObserver" in window && pending.length) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+        if (e.isIntersecting) { show(e.target); io.unobserve(e.target); }
       });
     }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
-    reveals.forEach(function (el) { io.observe(el); });
+    pending.slice().forEach(function (el) { io.observe(el); });
+
+    var sweepQueued = false;
+    var onMove = function () {
+      if (sweepQueued || !pending.length) return;
+      sweepQueued = true;
+      window.requestAnimationFrame(function () { sweepQueued = false; sweep(); });
+    };
+    window.addEventListener("scroll", onMove, { passive: true });
+    window.addEventListener("resize", onMove, { passive: true });
+    window.addEventListener("load", sweep);
+    sweep();
   } else {
-    reveals.forEach(function (el) { el.classList.add("in"); });
+    pending.slice().forEach(show);
+  }
+
+  /* ===================== Motion =====================
+     Three small touches, all skipped entirely if the visitor has asked their
+     device to reduce motion. Nothing here is required to read the page. */
+  var REDUCED = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ----- 1. Cascade: things that reveal side by side arrive one after another ----- */
+  if (!REDUCED) {
+    // (a) Siblings that each carry .reveal: give each a slightly later start.
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      var parent = el.parentElement;
+      if (!parent || parent.getAttribute("data-cascaded")) return;
+      parent.setAttribute("data-cascaded", "1");
+      var sibs = [];
+      Array.prototype.forEach.call(parent.children, function (c) {
+        if (c.classList.contains("reveal")) sibs.push(c);
+      });
+      if (sibs.length < 2) return;
+      sibs.forEach(function (s, i) { s.style.transitionDelay = Math.min(i, 5) * 80 + "ms"; });
+    });
+
+    // (b) Containers that reveal as a single unit: cascade their children instead.
+    document.querySelectorAll(".contexts.reveal, .stats.reveal, .steps.reveal, .promise.reveal")
+      .forEach(function (box) {
+        box.classList.add("stagger");
+        Array.prototype.forEach.call(box.children, function (kid, i) {
+          kid.style.setProperty("--i", i);
+        });
+      });
+  }
+
+  /* ----- 2. Reading-progress bar ----- */
+  if (!REDUCED) {
+    var bar = document.createElement("div");
+    bar.className = "scroll-progress";
+    bar.setAttribute("aria-hidden", "true");
+    document.body.appendChild(bar);
+    var queued = false;
+    var paint = function () {
+      var span = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = span > 0 ? window.scrollY / span : 0;
+      bar.style.transform = "scaleX(" + Math.min(1, Math.max(0, pct)) + ")";
+      queued = false;
+    };
+    window.addEventListener("scroll", function () {
+      if (!queued) { queued = true; window.requestAnimationFrame(paint); }
+    }, { passive: true });
+    window.addEventListener("resize", paint, { passive: true });
+    paint();
+  }
+
+  /* ----- 3. Statistics count up when they scroll into view -----
+     The original text is restored exactly at the end, so nothing can be
+     left showing a rounded or half-finished figure. */
+  function countUp(el) {
+    var original = el.textContent.trim();
+    var parts = original.match(/^([^0-9]*)([0-9][0-9.,]*)(.*)$/);
+    if (!parts) return;
+    var prefix = parts[1], digits = parts[2], suffix = parts[3];
+    var target = parseFloat(digits.replace(/,/g, ""));
+    if (!isFinite(target)) return;
+    // A bare four-digit year should not count up from zero.
+    if (!prefix && !suffix && target > 1900 && target < 2200) return;
+    var places = (digits.split(".")[1] || "").length;
+    var began = null, span = 1100;
+    var step = function (now) {
+      if (began === null) began = now;
+      var t = Math.min(1, (now - began) / span);
+      var eased = 1 - Math.pow(1 - t, 3);
+      if (t < 1) {
+        el.textContent = prefix + (target * eased).toFixed(places) + suffix;
+        window.requestAnimationFrame(step);
+      } else {
+        el.textContent = original;
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  var figures = document.querySelectorAll(".stat .num");
+  if (!REDUCED && "IntersectionObserver" in window && figures.length) {
+    var fio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { countUp(e.target); fio.unobserve(e.target); }
+      });
+    }, { threshold: 0.6 });
+    figures.forEach(function (el) { fio.observe(el); });
   }
 
   /* ----- Label each photo placeholder with its unique name (from the file name) -----

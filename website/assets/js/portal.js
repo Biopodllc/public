@@ -33,19 +33,25 @@
     { n: "Succulent",        g: "Houseplant", a: "light",    t: "Very light feeder. Stretch the cycle and never crowd the pot." },
     { n: "Cactus",           g: "Houseplant", a: "light",    t: "Minimal needs. Feed only in the active season." },
     { n: "Orchid",           g: "Houseplant", a: "light",    t: "Grown in bark, not soil, so pods are not the right format here." },
-    // Herbs and edibles
-    { n: "Basil",            g: "Herb",       a: "heavy",    t: "Constant harvesting means constant regrowth. Wants steady nitrogen." },
-    { n: "Mint",             g: "Herb",       a: "moderate", t: "Vigorous and forgiving. Give it its own pot, it will take over." },
-    { n: "Parsley",          g: "Herb",       a: "moderate", t: "Steady leafy growth through the season." },
-    { n: "Rosemary",         g: "Herb",       a: "light",    t: "Mediterranean. Prefers lean soil, so do not overdo it." },
-    { n: "Tomato",           g: "Vegetable",  a: "heavy",    t: "One of the hungriest things you can grow in a pot." },
-    { n: "Pepper",           g: "Vegetable",  a: "heavy",    t: "Long season, heavy feeder. Potassium supports fruit set." },
-    { n: "Lettuce",          g: "Vegetable",  a: "moderate", t: "Fast and leafy. A short crop, so one pod usually covers it." },
+    // Foliage and easy-care
+    { n: "Dracaena",         g: "Houseplant", a: "light",    t: "Slow and steady. Sensitive to too much, quite happy with a little." },
+    { n: "Chinese evergreen",g: "Houseplant", a: "moderate", t: "Tolerant of low light. Feeds steadily through the warm months." },
+    { n: "Anthurium",        g: "Houseplant", a: "moderate", t: "Blooms on and off all year when fed consistently rather than heavily." },
+    { n: "Bird of paradise", g: "Houseplant", a: "heavy",    t: "Big leaves, big appetite. A strong grower given room and food." },
+    { n: "Croton",           g: "Houseplant", a: "moderate", t: "Colour holds best with steady nutrition and bright light." },
+    { n: "Parlour palm",     g: "Houseplant", a: "light",    t: "Undemanding. Easy to overfeed with concentrates, hard to with a pod." },
+    { n: "English ivy",      g: "Houseplant", a: "moderate", t: "Trails fast in the growing season, then slows right down." },
     // Ornamentals
     { n: "Rose",             g: "Ornamental", a: "heavy",    t: "Hungry through the blooming season. Feed at the root zone." },
     { n: "Hydrangea",        g: "Ornamental", a: "heavy",    t: "Big leaves, big thirst, big appetite in summer." },
     { n: "Geranium",         g: "Ornamental", a: "moderate", t: "Reliable container bloomer. Steady feeding keeps flowers coming." },
-    { n: "Fern",             g: "Houseplant", a: "light",    t: "Gentle feeder. Cares far more about humidity than fertilizer." }
+    { n: "Fern",             g: "Houseplant", a: "light",    t: "Gentle feeder. Cares far more about humidity than fertilizer." },
+    { n: "Begonia",          g: "Ornamental", a: "moderate", t: "Steady feeding keeps both the leaves and the flowers coming." },
+    { n: "Petunia",          g: "Ornamental", a: "heavy",    t: "A hungry container bloomer. Fades fast if it runs out of food." },
+    { n: "Marigold",         g: "Ornamental", a: "moderate", t: "Cheerful and tough. Reliable in a pot with modest feeding." },
+    { n: "Fuchsia",          g: "Ornamental", a: "heavy",    t: "Flowers hard all season, so it wants a steady supply underneath." },
+    { n: "Lavender",         g: "Ornamental", a: "light",    t: "Prefers lean soil and sharp drainage. Do not overdo it." },
+    { n: "Hosta",            g: "Ornamental", a: "moderate", t: "Leafy and shade-loving. Steady nitrogen keeps the foliage full." }
   ];
 
   var APPETITE_WEEKS = { light: 10, moderate: 9, heavy: 8 };

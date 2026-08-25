@@ -1,6 +1,6 @@
 /* BioPod service worker - light offline support for the Plant Care Portal
    and handling for reminder notification clicks. */
-var CACHE = "biopod-portal-v2";
+var CACHE = "biopod-portal-v3";
 var ASSETS = [
   "portal.html",
   "assets/css/styles.css",

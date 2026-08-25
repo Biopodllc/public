@@ -440,7 +440,7 @@ sup.ref { font-size: .62em; color: var(--clay-600); font-weight: 700; padding-le
 .contexts { display: grid; gap: 20px; grid-template-columns: 1fr; }
 @media (min-width: 700px) { .contexts { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1000px) { .contexts { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 1040px) { .contexts.four { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1000px) { .contexts.four { grid-template-columns: repeat(4, 1fr); } }
 .context {
   background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 22px; display: flex; flex-direction: column; gap: .5rem;
@@ -511,4 +511,41 @@ a.src:hover { color: var(--green-700); }
 @media (prefers-reduced-motion: reduce) {
   .context { transition: none; }
   .context:hover { transform: none; }
+}
+
+/* ================= Motion layer =================
+   Everything here is additive and gated behind .js, so the page is fully
+   readable with JavaScript off. All of it is disabled under
+   prefers-reduced-motion at the bottom of this block. */
+
+/* Children of a revealing container cascade in one after another. */
+.js .stagger > * {
+  opacity: 0; transform: translateY(14px);
+  transition: opacity .55s var(--ease), transform .55s var(--ease);
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+.js .stagger.in > * { opacity: 1; transform: none; }
+
+/* Thin reading-progress bar pinned to the very top of the viewport. */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 300;
+  background: linear-gradient(90deg, var(--green-500), var(--green-700));
+  transform: scaleX(0); transform-origin: 0 50%;
+  pointer-events: none; will-change: transform;
+}
+
+/* Photos settle out of a very slight zoom as they come into view. */
+.js .photo.reveal > img { transform: scale(1.05); transition: transform 1.2s var(--ease); }
+.js .photo.reveal.in > img { transform: none; }
+
+/* Keeps counting numbers from jittering as digits change width. */
+.stat .num { font-variant-numeric: tabular-nums; }
+
+/* Cards lift a touch more decisively on hover. */
+.context, .card { will-change: transform; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .stagger > * { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .js .photo.reveal > img { transform: none !important; transition: none !important; }
+  .scroll-progress { display: none; }
 }

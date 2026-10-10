@@ -13,3 +13,4 @@ secrets.*
 
 # Local tool state (never publish)
 .wrangler/
+website/assets/brand/logo-solid.png

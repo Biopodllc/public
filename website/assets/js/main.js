@@ -20,11 +20,13 @@
     toggle.addEventListener("click", function () {
       var open = menu.classList.toggle("open");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.classList.toggle("menu-open", open);
     });
     menu.querySelectorAll("a").forEach(function (a) {
       a.addEventListener("click", function () {
         menu.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("menu-open");
       });
     });
   }
@@ -246,5 +248,41 @@
   /* ----- Footer year ----- */
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();
+  });
+})();
+
+/* Reservation and contact forms: one email, posted to the BioPod app's API (stored, no mail client needed). */
+(function () {
+  var API = "https://app.biopodllc.com/api/reserve";
+  var COPY = {
+    reserve: "You're reserved. We will email you the ship date and the final cost before anything is charged.",
+    contact: "Got it. We reply to every message from hello@biopodllc.com.",
+    investor: "Thanks. The investor packet is on its way from hello@biopodllc.com."
+  };
+  document.querySelectorAll("form[data-reserve]").forEach(function (form) {
+    var status = form.querySelector(".reserve-status");
+    var btn = form.querySelector('button[type="submit"]');
+    var email = form.querySelector('input[type="email"]');
+    function show(type, msg) { status.className = "reserve-status show " + type; status.textContent = msg; }
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var v = (email.value || "").trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { show("err", "Add your email so we can send you the ship date."); email.focus(); return; }
+      var kind = form.getAttribute("data-kind") || "reserve";
+      var msg = form.querySelector("textarea"); var hp = form.querySelector(".hp");
+      btn.disabled = true; var label = btn.textContent; btn.textContent = "One moment";
+      fetch(API, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ kind: kind, email: v, message: msg ? msg.value : "", website: hp ? hp.value : "", source: location.pathname }) })
+        .then(function (r) { return r.json().then(function (d) { return { ok: r.ok && d.ok, d: d }; }); })
+        .then(function (res) {
+          if (res.ok) { form.classList.add("is-done"); show("ok", (res.d.duplicate ? "You were already on the list. " : "") + COPY[kind]); }
+          else { show("err", (res.d && res.d.error && res.d.error.message) || "That did not go through. Email us at hello@biopodllc.com."); btn.disabled = false; btn.textContent = label; }
+        })
+        .catch(function () { show("err", "No connection. Email us at hello@biopodllc.com and we will reserve it for you."); btn.disabled = false; btn.textContent = label; });
+    });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    var t = document.querySelector(".nav-toggle"); var m = document.querySelector(".mobile-menu");
+    if (t && m && m.classList.contains("open")) { m.classList.remove("open"); t.setAttribute("aria-expanded", "false"); document.body.classList.remove("menu-open"); t.focus(); }
   });
 })();

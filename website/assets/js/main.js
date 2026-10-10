@@ -208,6 +208,7 @@
 
   function subjectFor(form) {
     var a = (form.getAttribute("aria-label") || "").toLowerCase();
+    if (a.indexOf("reserv") > -1) return "BioPod pack reservation";
     if (a.indexOf("waitlist") > -1) return "BioPod waitlist signup";
     if (a.indexOf("investor") > -1) return "BioPod investor inquiry";
     return "BioPod website message";

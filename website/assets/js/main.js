@@ -286,3 +286,16 @@
     if (t && m && m.classList.contains("open")) { m.classList.remove("open"); t.setAttribute("aria-expanded", "false"); document.body.classList.remove("menu-open"); t.focus(); }
   });
 })();
+
+(function () {
+  var bar = document.getElementById("topbar");
+  if (bar) {
+    try { if (localStorage.getItem("biopod.topbar") === "x") bar.classList.add("hidden"); } catch (e) {}
+    var x = bar.querySelector(".topbar-x");
+    if (x) x.addEventListener("click", function () { bar.classList.add("hidden"); try { localStorage.setItem("biopod.topbar", "x"); } catch (e) {} });
+  }
+  var form = document.querySelector("form[data-reserve]");
+  if (form && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) { document.body.classList.toggle("form-in-view", es[0].isIntersecting); }, { threshold: 0.2 }).observe(form);
+  }
+})();

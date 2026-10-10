@@ -549,3 +549,64 @@ a.src:hover { color: var(--green-700); }
   .js .photo.reveal > img { transform: none !important; transition: none !important; }
   .scroll-progress { display: none; }
 }
+
+/* ---------- Home: reserve + app (added with the reserve-first homepage) ---------- */
+.topbar { background: var(--green-900); color: #D7DDC9; font-size: .86rem; text-align: center; padding: .55rem 1rem; }
+.topbar strong { color: var(--white); font-weight: 600; }
+.hero .price-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem .8rem; margin: 1.2rem 0 1.4rem; }
+.hero .price-line .big { font-family: var(--font-display); font-size: 2rem; color: var(--green-900); font-weight: 500; }
+.hero .price-line .sub { color: var(--ink-500); font-size: .95rem; }
+.hero-duo { display: grid; gap: 28px; align-items: end; }
+@media (min-width: 760px) { .hero-duo { grid-template-columns: 1.2fr .8fr; } }
+.hero-product { position: relative; }
+.hero-product .flag { position: absolute; left: 18px; bottom: 18px; background: var(--white); border-radius: var(--radius); padding: .7rem .9rem; box-shadow: var(--shadow); display: grid; gap: 2px; max-width: 70%; }
+.hero-product .flag b { font-family: var(--font-display); font-size: 1.2rem; color: var(--green-900); font-weight: 500; }
+.hero-product .flag span { font-size: .84rem; color: var(--ink-500); }
+.phone { width: 200px; aspect-ratio: 9 / 19.2; border-radius: 30px; background: #111; padding: 8px; box-shadow: var(--shadow-lg); flex: 0 0 auto; margin: 0 auto; }
+.phone.small { width: 160px; opacity: .92; }
+.phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 23px; display: block; }
+.phones { display: flex; gap: 18px; justify-content: center; align-items: flex-end; }
+.howres { display: grid; gap: 14px; }
+@media (min-width: 760px) { .howres { grid-template-columns: repeat(3, 1fr); } }
+.howres .s { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; font-size: .95rem; }
+.howres .s b { display: block; font-family: var(--font-display); font-size: 1.15rem; margin-bottom: .3rem; color: var(--green-900); }
+.reserve { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 26px; display: grid; gap: 12px; }
+.reserve h3 { font-size: 1.35rem; }
+.reserve label { font-size: .9rem; font-weight: 600; display: block; margin-bottom: .3rem; }
+.reserve label.check { display: flex; gap: .6rem; align-items: flex-start; font-weight: 400; font-size: .9rem; color: var(--ink-500); }
+.reserve label.check input { margin-top: .25rem; }
+.reserve input:not([type="checkbox"]), .reserve select { width: 100%; padding: .8rem .9rem; border: 1px solid var(--line-strong); border-radius: 10px; font: inherit; background: var(--cream-100); color: var(--ink-900); }
+.reserve input:focus, .reserve select:focus { outline: 2px solid var(--green-500); outline-offset: 2px; }
+.reserve .row { display: grid; gap: 10px; }
+@media (min-width: 560px) { .reserve .row { grid-template-columns: 1fr 1fr; } }
+.reserve .fineprint { font-size: .82rem; color: var(--ink-500); }
+.halves { display: grid; gap: 18px; }
+@media (min-width: 760px) { .halves { grid-template-columns: 1fr 1fr; } }
+.half { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; display: grid; grid-template-rows: 220px 1fr; }
+.half .img { position: relative; background: var(--green-100); }
+.half .img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.half .img.app { display: grid; place-items: center; overflow: hidden; }
+.half .img.app .phone { width: 150px; transform: translateY(40px); }
+.half .txt { padding: 24px; display: grid; gap: 8px; align-content: start; }
+.half .txt ul { margin: 6px 0 0; padding-left: 1.1rem; color: var(--ink-500); font-size: .95rem; display: grid; gap: 4px; }
+.bento { display: grid; gap: 18px; }
+@media (min-width: 760px) { .bento { grid-template-columns: repeat(6, 1fr); } .bento .b-wide { grid-column: span 4; } .bento .b-tall { grid-column: span 2; grid-row: span 2; } .bento .b { grid-column: span 2; } }
+.bento .tile { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 26px; display: grid; align-content: start; gap: 8px; }
+.bento .tile.photo-tile { padding: 0; overflow: hidden; min-height: 240px; position: relative; }
+.bento .tile.photo-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.bento .tile.photo-tile .cap { position: absolute; left: 18px; bottom: 16px; right: 18px; color: var(--white); font-family: var(--font-display); font-size: 1.35rem; text-shadow: 0 2px 14px rgba(0,0,0,.45); }
+.bento .tile h3 { font-size: 1.2rem; }
+.bento .tile p { font-size: .96rem; color: var(--ink-500); }
+.bento .tile .big { font-family: var(--font-display); font-size: 2.4rem; color: var(--green-900); line-height: 1; font-weight: 500; }
+.app-split { display: grid; gap: 36px; align-items: center; }
+@media (min-width: 860px) { .app-split { grid-template-columns: 1.1fr .9fr; } }
+.app-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.2rem; }
+.app-badges .ab { display: inline-flex; align-items: center; gap: .5rem; padding: .55rem .9rem; border-radius: var(--radius-pill); background: rgba(255,255,255,.1); color: var(--white); font-size: .9rem; font-weight: 500; }
+.buy-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: var(--white); border-top: 1px solid var(--line); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.buy-bar .t { display: grid; }
+.buy-bar .t b { font-size: .95rem; }
+.buy-bar .t span { font-size: .8rem; color: var(--ink-500); }
+@media (min-width: 760px) { .buy-bar { display: none; } }
+body.has-buybar { padding-bottom: 76px; }
+@media (min-width: 760px) { body.has-buybar { padding-bottom: 0; } }
+@media (prefers-reduced-motion: reduce) { .phone, .hero-product .flag { transition: none; } }

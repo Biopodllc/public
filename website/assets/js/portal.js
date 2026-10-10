@@ -14,7 +14,7 @@
   /* =========================================================
      PLANT KNOWLEDGE BASE
      appetite: how hungry the plant is, which sets the base cycle
-       light    = 10 weeks   moderate = 9 weeks   heavy = 8 weeks
+       light    = 6 weeks    moderate = 5 weeks   heavy = 4 weeks   (one pod per plant)
      Kept deliberately qualitative. General horticultural guidance,
      not invented precision.
      ========================================================= */
@@ -54,7 +54,7 @@
     { n: "Hosta",            g: "Ornamental", a: "moderate", t: "Leafy and shade-loving. Steady nitrogen keeps the foliage full." }
   ];
 
-  var APPETITE_WEEKS = { light: 10, moderate: 9, heavy: 8 };
+  var APPETITE_WEEKS = { light: 6, moderate: 5, heavy: 4 };
 
   function findSpecies(str) {
     if (!str) return null;
@@ -77,20 +77,14 @@
     var m = (date || new Date()).getMonth(); // 0 = Jan
     if (m >= 2 && m <= 8) return { key: "growing", label: "Growing season", add: 0,
       note: "Longer days, active growth. Plants are feeding at their normal pace." };
-    if (m === 9) return { key: "taper", label: "Season tapering", add: 2,
+    if (m === 9) return { key: "taper", label: "Season tapering", add: 0,
       note: "Days are shortening and growth is slowing, so feedings can space out a little." };
-    return { key: "resting", label: "Resting season", add: 4,
-      note: "Through the short days most plants rest and take up far less from the soil, so stretch the gap between pods." };
+    return { key: "resting", label: "Resting season", add: 0,
+      note: "Through the short days most plants rest and take up far less from the soil, so it is fine to wait for new growth before the next pod." };
   }
 
-  /* Pods needed, from BioPod's pot-size rule: about one pod per six inches. */
-  function podsFor(inches) {
-    if (!inches) return null;
-    if (inches <= 6) return 1;
-    if (inches <= 11) return 2;
-    if (inches <= 17) return 3;
-    return Math.max(4, Math.round(inches / 6));
-  }
+  /* One pod per plant per feeding. */
+  function podsFor(inches) { return 1; }
 
   /* Suggested cycle for a plant: appetite base, adjusted for season and pot size. */
   function suggestCycle(speciesStr, inches, date) {
@@ -98,9 +92,7 @@
     var base = sp ? APPETITE_WEEKS[sp.a] : 9;
     var s = season(date);
     var weeks = base + s.add;
-    // Small pots dry out and flush faster, so they run slightly shorter.
-    if (inches && inches <= 5) weeks -= 1;
-    return { weeks: Math.max(6, Math.min(16, weeks)), species: sp, season: s, base: base };
+    return { weeks: Math.max(4, Math.min(6, weeks)), species: sp, season: s, base: base };
   }
 
   /* =========================================================
@@ -137,7 +129,7 @@
       id: "white-crust",
       q: "White or crusty deposit on the soil surface or pot rim",
       cause: "Salt buildup, the classic sign of concentrated synthetic fertilizer.",
-      why: "Salts that the plant never took up stay behind and concentrate as water evaporates. This is exactly the failure mode a pre-measured organic pod is designed to avoid.",
+      why: "Salts that the plant never took up stay behind and concentrate as water evaporates. This is exactly the failure mode a pre-measured pod that releases gradually is designed to avoid.",
       todo: "Flush the pot slowly with plain water several times, and scrape off the crust. Going forward, a pod releases gradually instead of dumping soluble salts.",
       feeding: false
     },
@@ -277,7 +269,7 @@
     var pods = podsFor(inches);
 
     if (applyCycle && !userTouchedCycle) {
-      cycleEl.value = Math.max(6, Math.min(16, sug.weeks));
+      cycleEl.value = Math.max(4, Math.min(6, sug.weeks));
       cycleOut.textContent = cycleEl.value + " weeks";
     }
 
@@ -288,8 +280,7 @@
       bits.push('<p><strong>' + esc(sug.species.n) + '</strong> is ' + appetite + '. ' + esc(sug.species.t) + '</p>');
     }
     if (pods) {
-      bits.push('<p><strong>' + pods + (pods === 1 ? ' pod' : ' pods') + '</strong> for a ' + inches +
-        ' inch pot, about one per six inches of width.</p>');
+      bits.push('<p><strong>One pod</strong> per plant, per feeding.</p>');
     }
     bits.push('<p><strong>' + sug.weeks + ' weeks</strong> suggested right now. ' + esc(sug.season.note) + '</p>');
 

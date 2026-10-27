@@ -210,7 +210,7 @@
 
   function subjectFor(form) {
     var a = (form.getAttribute("aria-label") || "").toLowerCase();
-    if (a.indexOf("reserv") > -1) return "BioPod pack reservation";
+    if (a.indexOf("reserv") > -1) return "BioPod waitlist signup";
     if (a.indexOf("waitlist") > -1) return "BioPod waitlist signup";
     if (a.indexOf("investor") > -1) return "BioPod investor inquiry";
     return "BioPod website message";
@@ -251,11 +251,11 @@
   });
 })();
 
-/* Reservation and contact forms: one email, posted to the BioPod app's API (stored, no mail client needed). */
+/* Waitlist and contact forms: one email, posted to the BioPod app's API (stored, no mail client needed). */
 (function () {
   var API = "https://app.biopodllc.com/api/reserve";
   var COPY = {
-    reserve: "You're reserved. We will email you the ship date and the final cost before anything is charged.",
+    reserve: "You're on the list! We will email you when BioPod is ready.",
     contact: "Got it. We reply to every message from hello@biopodllc.com.",
     investor: "Thanks. The investor packet is on its way from hello@biopodllc.com."
   };
@@ -267,7 +267,7 @@
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var v = (email.value || "").trim();
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { show("err", "Add your email so we can send you the ship date."); email.focus(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { show("err", "Add your email so we can let you know."); email.focus(); return; }
       var kind = form.getAttribute("data-kind") || "reserve";
       var msg = form.querySelector("textarea"); var hp = form.querySelector(".hp");
       btn.disabled = true; var label = btn.textContent; btn.textContent = "One moment";
@@ -277,7 +277,7 @@
           if (res.ok) { form.classList.add("is-done"); show("ok", (res.d.duplicate ? "You were already on the list. " : "") + COPY[kind]); }
           else { show("err", (res.d && res.d.error && res.d.error.message) || "That did not go through. Email us at hello@biopodllc.com."); btn.disabled = false; btn.textContent = label; }
         })
-        .catch(function () { show("err", "No connection. Email us at hello@biopodllc.com and we will reserve it for you."); btn.disabled = false; btn.textContent = label; });
+        .catch(function () { show("err", "No connection. Email us at hello@biopodllc.com and we will add you."); btn.disabled = false; btn.textContent = label; });
     });
   });
   document.addEventListener("keydown", function (e) {
